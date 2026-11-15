@@ -1,0 +1,450 @@
+.section {
+  width: 100%;
+  min-height: 100%;
+  padding: 8px 8px 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.03), transparent 42%),
+    var(--bg-color);
+}
+
+:global(html[data-theme='light']) .section {
+  background:
+    radial-gradient(circle at top, rgba(0, 0, 0, 0.03), transparent 42%),
+    var(--bg-color);
+}
+
+.bento {
+  --case-gap: var(--bento-gap, 12px);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--case-gap);
+  padding-bottom: var(--case-gap);
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.tile {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--bento-radius);
+  background: var(--bento-tile-bg);
+  padding: 24px 26px;
+  overflow: hidden;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bento-text-muted);
+  font-weight: 500;
+}
+
+.pageTitle,
+.tileHeading,
+.valueTitle {
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--bento-text-main);
+}
+
+.pageTitle {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.08;
+}
+
+.tileHeading {
+  font-size: clamp(20px, 2.4vw, 26px);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.valueTitle {
+  font-size: 18px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.bodyText,
+.metaValue,
+.stepText {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--bento-text-muted);
+}
+
+.metaValue {
+  color: var(--bento-text-main);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.titleTile {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 280px;
+}
+
+.heroTile {
+  grid-column: span 7;
+  padding: 0;
+  min-height: 280px;
+}
+
+.mediaTile {
+  grid-column: span 6;
+  padding: 0;
+  min-height: 260px;
+}
+
+.heroImage,
+.mediaImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.metaTile {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 110px;
+}
+
+.toolsTile {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.toolsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toolIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bento-tile-elevated);
+  color: var(--bento-text-main);
+  flex-shrink: 0;
+}
+
+.toolFallback {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.descTile {
+  grid-column: span 4;
+}
+
+.contextTile {
+  grid-column: span 8;
+}
+
+.problemTile {
+  grid-column: span 6;
+}
+
+.problemTileWide {
+  grid-column: span 12;
+}
+
+.problemTile .eyebrow {
+  display: none;
+}
+
+.mediaTile {
+  grid-column: span 6;
+}
+
+.processIntroTile {
+  grid-column: span 12;
+}
+
+.processIntroTile .eyebrow {
+  display: none;
+}
+
+.stepTile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.stepTileThird {
+  grid-column: span 4;
+}
+
+.stepTileHalf {
+  grid-column: span 6;
+}
+
+.stepTitle {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--bento-text-main);
+}
+
+.stepIndex {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--bento-text-secondary, var(--bento-text-muted));
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stepText {
+  margin: 0;
+  color: var(--bento-text-secondary, var(--bento-text-muted));
+  font-size: 14px;
+  line-height: 1.45;
+  max-width: 36ch;
+}
+
+.stepChips {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stepChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bento-tile-elevated);
+  color: var(--bento-text-main);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+:global(html[data-theme='light']) .stepChip {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.stepFlow {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepFlowItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepFlowArrow {
+  display: inline-flex;
+  color: var(--bento-text-muted);
+  opacity: 0.7;
+}
+
+.valueHeaderTile {
+  grid-column: span 12;
+  padding-top: 20px;
+  padding-bottom: 18px;
+}
+
+.valueHeaderTile .eyebrow {
+  display: none;
+}
+
+.valueTile {
+  grid-column: span 6;
+}
+
+.solutionTile {
+  grid-column: span 6;
+}
+
+.solutionTile .eyebrow {
+  display: none;
+}
+
+.solutionMedia {
+  grid-column: span 6;
+}
+
+.metricsTile {
+  grid-column: span 12;
+}
+
+.metricsTile .eyebrow {
+  display: none;
+}
+
+.metricChips {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metricChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bento-tile-elevated);
+  color: var(--bento-text-main);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+:global(html[data-theme='light']) .metricChip {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.insightsTile {
+  grid-column: span 12;
+}
+
+.insightsTile .eyebrow {
+  display: none;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 18px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--bento-text-main);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+:global(html[data-theme='light']) .ctaButton {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 960px) {
+  .titleTile,
+  .heroTile,
+  .metaTile,
+  .toolsTile,
+  .descTile,
+  .contextTile,
+  .problemTile,
+  .problemTileWide,
+  .mediaTile,
+  .processIntroTile,
+  .valueHeaderTile,
+  .valueTile,
+  .solutionTile,
+  .solutionMedia,
+  .metricsTile,
+  .insightsTile {
+    grid-column: span 12;
+  }
+
+  .titleTile,
+  .heroTile {
+    min-height: 220px;
+  }
+
+  .metaTile,
+  .toolsTile {
+    grid-column: span 6;
+  }
+
+  .stepTileThird,
+  .stepTileHalf {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 4px 4px 0;
+  }
+
+  .tile {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .metaTile,
+  .toolsTile,
+  .stepTile,
+  .stepTileThird,
+  .stepTileHalf,
+  .valueTile {
+    grid-column: span 12;
+  }
+
+  .heroTile,
+  .mediaTile,
+  .solutionMedia {
+    min-height: 200px;
+  }
+}
