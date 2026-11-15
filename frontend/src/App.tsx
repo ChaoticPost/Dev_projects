@@ -48,7 +48,7 @@ const SiteApp: React.FC = () => {
 
   return (
     <Layout currentView={view} onNavigate={navigateTo} backConfig={backConfig}>
-      <Routes>
+      <Routes location={location}>
         <Route
           path="/"
           element={
