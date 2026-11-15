@@ -1,2 +1,3 @@
 # Dev_projects
-Сайт для проектов
+
+Сайт-портфолио fullstack-разработчика (на базе Productmanager_site).
