@@ -15,6 +15,7 @@ const LANG_COLORS: Record<string, string> = {
   Dockerfile: '#384d54',
   PowerShell: '#4d7a9c',
   Makefile: '#427819',
+  Mako: '#7d4550',
   Other: '#8b8b8b',
 };
 
@@ -51,7 +52,7 @@ const RepoLanguagesChart: React.FC<RepoLanguagesChartProps> = ({ languages }) =>
         <li key={lang.name} className={styles.langLegendItem}>
           <span className={styles.langDot} style={{ background: colorFor(lang.name) }} />
           <span className={styles.langName}>{lang.name}</span>
-          <span className={styles.langShare}>{lang.share}%</span>
+          <span className={styles.langShare}>{lang.share === 0 ? '0' : lang.share}%</span>
         </li>
       ))}
     </ul>
