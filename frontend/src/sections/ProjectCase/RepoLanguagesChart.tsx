@@ -52,7 +52,9 @@ const RepoLanguagesChart: React.FC<RepoLanguagesChartProps> = ({ languages }) =>
         <li key={lang.name} className={styles.langLegendItem}>
           <span className={styles.langDot} style={{ background: colorFor(lang.name) }} />
           <span className={styles.langName}>{lang.name}</span>
-          <span className={styles.langShare}>{lang.share === 0 ? '0' : lang.share}%</span>
+          <span className={styles.langShare}>
+            {lang.share === 0 ? '0' : lang.share.toFixed(1)}%
+          </span>
         </li>
       ))}
     </ul>
