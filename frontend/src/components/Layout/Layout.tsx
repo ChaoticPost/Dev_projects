@@ -2,8 +2,6 @@ import React, { ReactNode, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import DotCursor from '../DotCursor/DotCursor';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
 import HugeIcon from '../icons/HugeIcon';
 import { ArrowLeft01Icon } from '../icons/iconMap';
 import { SectionId } from '../../types/sections';
@@ -77,7 +75,6 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, back
       }`}
     >
       {showDotCursor && <DotCursor />}
-      {!isFullBleedView && <Header onNavigate={onNavigate} />}
       {showBack && (
         <button type="button" className={styles.backButton} onClick={() => onNavigate(backTarget)}>
           <HugeIcon icon={ArrowLeft01Icon} size={16} />
@@ -103,7 +100,6 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, back
           </motion.div>
         </AnimatePresence>
       </main>
-      {!isFullBleedView && <Footer />}
     </div>
   );
 };

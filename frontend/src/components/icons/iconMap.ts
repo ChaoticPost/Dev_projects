@@ -15,6 +15,7 @@ import {
   ArrowRight01Icon,
   Tick01Icon,
   Cancel01Icon,
+  GithubIcon,
 } from '@hugeicons/core-free-icons';
 
 export const socialIconMap: Record<string, IconSvgElement> = {
@@ -39,4 +40,5 @@ export {
   Tick01Icon,
   Home01Icon,
   Cancel01Icon,
+  GithubIcon,
 };

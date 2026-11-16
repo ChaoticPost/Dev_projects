@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Lang, bentoCopy } from '../BentoHome/bentoCopy';
 import SkeletonBackground from '../../components/Skeleton/SkeletonBackground';
 import { projectCases } from '../ProjectCase/projectCaseData';
+import { teamProjects, teamProjectsCopy } from './teamProjects';
 import styles from './BentoResources.module.css';
 
 interface BentoResourcesProps {
@@ -64,6 +65,41 @@ const BentoResources: React.FC<BentoResourcesProps> = ({ onOpenProjectCase }) =>
             </button>
           );
         })}
+
+        <div className={styles.groupDivider}>
+          <h2 className={styles.groupTitle}>{teamProjectsCopy[lang].groupTitle}</h2>
+          <a
+            className={styles.groupLink}
+            href="https://github.com/ResonanceTECH"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {teamProjectsCopy[lang].groupLink}
+          </a>
+        </div>
+
+        {teamProjects.map((project) => (
+          <button
+            key={project.id}
+            type="button"
+            className={styles.card}
+            onClick={() => onOpenProjectCase(project.id)}
+            aria-label={project.title}
+          >
+            <SkeletonBackground
+              src={project.image}
+              className={styles.preview}
+              ariaLabel={project.title}
+            />
+            <span className={styles.eventChip}>{project.tag[lang]}</span>
+            <div className={styles.meta}>
+              <div className={styles.metaTop}>
+                <h3 className={styles.title}>{project.title}</h3>
+              </div>
+              <p className={styles.subtitle}>{project.subtitle[lang]}</p>
+            </div>
+          </button>
+        ))}
       </div>
     </section>
   );

@@ -6,11 +6,6 @@ describe('pathForSection', () => {
     expect(pathForSection('intro')).toBe('/');
     expect(pathForSection('about')).toBe('/about');
     expect(pathForSection('resources')).toBe('/resources');
-    expect(pathForSection('work')).toBe('/work');
-    expect(pathForSection('job')).toBe('/job');
-    expect(pathForSection('education')).toBe('/education');
-    expect(pathForSection('license')).toBe('/license');
-    expect(pathForSection('contact')).toBe('/contact');
   });
 
   it('builds detail paths with a project id', () => {
@@ -29,8 +24,6 @@ describe('sectionFromPath', () => {
     expect(sectionFromPath('/')).toBe('intro');
     expect(sectionFromPath('/about')).toBe('about');
     expect(sectionFromPath('/resources')).toBe('resources');
-    expect(sectionFromPath('/work')).toBe('work');
-    expect(sectionFromPath('/contact')).toBe('contact');
   });
 
   it('resolves detail paths', () => {
@@ -51,7 +44,7 @@ describe('sectionFromPath', () => {
 
 describe('roundtrip', () => {
   it('maps every static section through path and back', () => {
-    const ids = ['intro', 'about', 'resources', 'work', 'job', 'education', 'license', 'contact'] as const;
+    const ids = ['intro', 'about', 'resources'] as const;
     for (const id of ids) {
       expect(sectionFromPath(pathForSection(id))).toBe(id);
     }

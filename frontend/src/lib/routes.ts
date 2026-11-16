@@ -4,11 +4,6 @@ const STATIC_PATHS: Record<Exclude<SectionId, 'resource-detail' | 'project-case'
   intro: '/',
   about: '/about',
   resources: '/resources',
-  work: '/work',
-  job: '/job',
-  education: '/education',
-  license: '/license',
-  contact: '/contact',
 };
 
 export const pathForSection = (id: SectionId, params?: { projectId: string }): string => {

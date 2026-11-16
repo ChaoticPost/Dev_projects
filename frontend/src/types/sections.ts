@@ -3,12 +3,7 @@ export type SectionId =
   | 'about'
   | 'resources'
   | 'resource-detail'
-  | 'project-case'
-  | 'work'
-  | 'job'
-  | 'education'
-  | 'license'
-  | 'contact';
+  | 'project-case';
 
 export interface NavItem {
   id: SectionId;

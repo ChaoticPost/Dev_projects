@@ -1,9 +1,8 @@
 import type { Lang } from '../BentoHome/bentoCopy';
 import { bentoImages } from '../BentoHome/bentoImages';
+import { teamProjectCases } from './teamCaseData';
 
-export type ProjectCaseId = 'campus-care' | 'cashless' | 'sorting-center' | 'laptop';
-
-export const projectCaseIds: ProjectCaseId[] = ['campus-care', 'cashless', 'sorting-center', 'laptop'];
+export type ProjectCaseId = string;
 
 export interface CaseTool {
   id: string;
@@ -32,6 +31,10 @@ export interface ProjectCase {
   context: Record<Lang, string>;
   /** Omit or leave empty for concept / unreleased projects */
   appUrl?: string;
+  /** Link to the source repository — renders a GitHub CTA */
+  repoUrl?: string;
+  /** Real language share of the repository (GitHub stats, %) — renders a chart tile */
+  languages?: Array<{ name: string; share: number }>;
   /** Case study is not ready yet — show "in development" state instead of opening */
   inDevelopment?: boolean;
   heroImage: string;
@@ -55,7 +58,7 @@ const sharedTools: CaseTool[] = [
   { id: 'notion', label: 'Notion' },
 ];
 
-export const projectCases: ProjectCase[] = [
+const personalProjectCases: ProjectCase[] = [
   {
     id: 'campus-care',
     title: { ru: 'Campus Care', en: 'Campus Care' },
@@ -383,6 +386,10 @@ export const projectCases: ProjectCase[] = [
     showcaseMain: bentoImages.laptop,
   },
 ];
+
+export const projectCases: ProjectCase[] = [...personalProjectCases, ...teamProjectCases];
+
+export const projectCaseIds: ProjectCaseId[] = projectCases.map((project) => project.id);
 
 export const isProjectCaseId = (id: string): id is ProjectCaseId =>
   projectCaseIds.includes(id as ProjectCaseId);

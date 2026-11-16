@@ -187,6 +187,13 @@ export const caseToolIconMap: Record<string, React.FC<BrandIconProps>> = {
   stitch: FigmaBrandIcon,
   framer: FramerBrandIcon,
   notion: NotionBrandIcon,
+  typescript: TypeScriptBrandIcon,
+  javascript: JavaScriptBrandIcon,
+  react: ReactBrandIcon,
+  vite: ViteBrandIcon,
+  nodedotjs: NodeDotJsBrandIcon,
+  python: PythonBrandIcon,
+  git: GitBrandIcon,
 };
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import HugeIcon from '../../components/icons/HugeIcon';
-import { ArrowRight01Icon, ArrowUpRight01Icon } from '../../components/icons/iconMap';
+import { ArrowRight01Icon, ArrowUpRight01Icon, GithubIcon } from '../../components/icons/iconMap';
 import { SectionId } from '../../types/sections';
 import { pathForSection } from '../../lib/routes';
 import { Lang } from '../BentoHome/bentoCopy';
@@ -9,6 +9,7 @@ import { caseToolIconMap } from '../../components/icons/stackBrandIcons';
 import { BrandToolIcon } from '../../components/icons/BrandToolIcon';
 import { caseStudyCopy } from './caseStudyCopy';
 import { getProjectCase } from './projectCaseData';
+import RepoLanguagesChart from './RepoLanguagesChart';
 import SkeletonImage from '../../components/Skeleton/SkeletonImage';
 import styles from './ProjectCaseStudy.module.css';
 
@@ -47,6 +48,13 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({ fallbackView = 'abo
           {project.appUrl ? (
             <a href={project.appUrl} className={styles.ctaButton} target="_blank" rel="noreferrer">
               <span>{copy.checkApp}</span>
+              <HugeIcon icon={ArrowUpRight01Icon} size={14} />
+            </a>
+          ) : null}
+          {project.repoUrl ? (
+            <a href={project.repoUrl} className={styles.ctaButton} target="_blank" rel="noreferrer">
+              <HugeIcon icon={GithubIcon} size={16} />
+              <span>{copy.openRepo}</span>
               <HugeIcon icon={ArrowUpRight01Icon} size={14} />
             </a>
           ) : null}
@@ -177,7 +185,11 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({ fallbackView = 'abo
         </article>
 
         {project.metrics ? (
-          <article className={`${styles.tile} ${styles.metricsTile}`}>
+          <article
+            className={`${styles.tile} ${styles.metricsTile} ${
+              project.languages?.length ? styles.metricsTileHalf : ''
+            }`}
+          >
             <h2 className={styles.tileHeading}>{copy.metrics}</h2>
             <ul className={styles.metricChips}>
               {project.metrics[lang].map((metric) => (
@@ -186,6 +198,17 @@ const ProjectCaseStudy: React.FC<ProjectCaseStudyProps> = ({ fallbackView = 'abo
                 </li>
               ))}
             </ul>
+          </article>
+        ) : null}
+
+        {project.languages?.length ? (
+          <article
+            className={`${styles.tile} ${styles.chartTile} ${
+              project.metrics ? '' : styles.chartTileWide
+            }`}
+          >
+            <h2 className={styles.tileHeading}>{copy.repoLanguages}</h2>
+            <RepoLanguagesChart languages={project.languages} />
           </article>
         ) : null}
 

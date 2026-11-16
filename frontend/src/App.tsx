@@ -6,11 +6,6 @@ import BentoAbout from './sections/BentoAbout/BentoAbout';
 import BentoResources from './sections/BentoResources/BentoResources';
 import BentoResourceDetail from './sections/BentoResources/BentoResourceDetail';
 import ProjectCaseStudy from './sections/ProjectCase/ProjectCaseStudy';
-import Work from './sections/Work/Work';
-import Job from './sections/Job/Job';
-import Education from './sections/Education/Education';
-import License from './sections/License/License';
-import Contact from './sections/Contact/Contact';
 import { SectionId } from './types/sections';
 import { pathForSection, routerBasename, sectionFromPath } from './lib/routes';
 import { destroySmoothScroll } from './lib/smoothScroll';
@@ -65,11 +60,6 @@ const SiteApp: React.FC = () => {
         />
         <Route path="/resources/:projectId" element={<BentoResourceDetail />} />
         <Route path="/case/:projectId" element={<ProjectCaseStudy fallbackView={backTo} />} />
-        <Route path="/work" element={<Work />} />
-        <Route path="/job" element={<Job />} />
-        <Route path="/education" element={<Education />} />
-        <Route path="/license" element={<License />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
